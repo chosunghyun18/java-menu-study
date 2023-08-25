@@ -27,4 +27,8 @@ public class Coach {
     public void storeDislikeMenus(List<List<String>> disLikesMenus) {
         coachesDiLikes = disLikesMenus;
     }
+
+    public Map<String, List<String>> getCoacheSelectedForShow() {
+        return coachesSelected;
+    }
 }

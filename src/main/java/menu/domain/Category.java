@@ -5,13 +5,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Category  {
-    private List<String> categories ;
+    private List<String> originCategories ;
+    private List<String> selectedCategories;
 
     public Category(){
-        this.categories = new ArrayList<>(List.of("카테고리:","일식","한식","중식","중식","아시안","양식"));
+        this.originCategories = new ArrayList<>(List.of("카테고리","일식","한식","중식","중식","아시안","양식"));
     }
 
     public String getCategory(){
-        return categories.get(Randoms.pickNumberInRange(1, 5));
+        return originCategories.get(Randoms.pickNumberInRange(1, 5));
+    }
+
+    public List<String> getSelectedForResult() {
+        return selectedCategories;
     }
 }

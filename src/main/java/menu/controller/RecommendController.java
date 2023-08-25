@@ -2,16 +2,19 @@ package menu.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import menu.domain.Category;
 import menu.domain.Coach;
 
 public class RecommendController {
 // 흐름 관리 및 객체 생성 , 값 전달 +  최소한의 비즈니스 로직
     private int numberOfCoaches;
-    private final ViewController viewController;
+    private final Category categories;
     private final Coach coaches;
+    private final ViewController viewController;
     public RecommendController() {
         viewController = new ViewController();
         coaches = new Coach();
+        categories = new Category();
     }
 
     public void startRecommend() {
@@ -43,6 +46,6 @@ public class RecommendController {
     }
 
     public void showResult() {
-
+        viewController.showEndMessage(categories,coaches);
     }
 }
