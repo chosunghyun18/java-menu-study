@@ -6,10 +6,10 @@ public class InputView {
     public InputView( ) {
 
     }
-    public String  getName() {
+    public String readCoachesName() {
         return Console.readLine();
     }
-    public String getMenu() {
+    public String readDisLike() {
         return Console.readLine();
     }
 }
