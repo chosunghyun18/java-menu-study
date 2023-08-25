@@ -23,11 +23,16 @@ public class RecommendController {
 
     public void prosses() {
         System.out.println("코치의 이름을 입력해 주세요. (, 로 구분)\n");
+        readName();
+        readDislike();
+        recommendCategory();
+        recommendMenu();
+    }
+
+    private void readName(){
         List<String> names = viewController.readCoachesName();
         this.numberOfCoaches = names.size();
         coaches.storeCoaches(names);
-        readDislike();
-        recommendMenu();
     }
 
     private void readDislike() {
@@ -40,6 +45,9 @@ public class RecommendController {
         coaches.storeDislikeMenus(disLikesMenus);
     }
 
+    private void recommendCategory() {
+        categories.selectCategory();
+    }
 
     private void recommendMenu() {
 
