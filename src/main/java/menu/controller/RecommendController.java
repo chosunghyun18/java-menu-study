@@ -7,12 +7,13 @@ import menu.domain.Coach;
 import menu.domain.Menu;
 
 public class RecommendController {
-// 흐름 관리 및 객체 생성 , 값 전달 +  최소한의 비즈니스 로직
+
     private int numberOfCoaches;
     private final Category categories;
     private final Coach coaches;
     private final Menu menu;
     private final ViewController viewController;
+
     public RecommendController() {
         viewController = new ViewController();
         coaches = new Coach();
@@ -32,7 +33,7 @@ public class RecommendController {
         recommendMenu();
     }
 
-    private void readName(){
+    private void readName() {
         List<String> names = viewController.readCoachesName();
         this.numberOfCoaches = names.size();
         coaches.storeCoaches(names);
@@ -40,7 +41,6 @@ public class RecommendController {
 
     private void readDislike() {
         List<List<String>> disLikesMenus = new ArrayList<>();
-        // get dislikes menu in order of caches
         for (int i = 0; i < numberOfCoaches; i++) {
             List<String> dislikes = viewController.readCoachesDislike(coaches.getCoachesName(i));
             disLikesMenus.add(dislikes);
@@ -53,37 +53,39 @@ public class RecommendController {
     }
 
     private void recommendMenu() {
-        for(int i = 0 ;i <5 ;i++){
+        for (int i = 0; i < 5; i++) {
             String category = categories.getCategoriesByDay(i);
             List<String> menusAll = menu.getOriginMenuByCategory(category);
-            for(int j = 0 ; j <numberOfCoaches ;j++) {
+            for (int j = 0; j < numberOfCoaches; j++) {
                 boolean selceted = false;
                 List<String> dislikes = coaches.getCoachesDislikeByOrder(j);
-                while(!selceted){
-                    String menuSelected = menu.getMenuFromMenus(removeDislike(menusAll,dislikes));
-                    if(storeSelected(menuSelected,j)) selceted =true;
+                while (!selceted) {
+                    String menuSelected = menu.getMenuFromMenus(removeDislike(menusAll, dislikes));
+                    if (storeSelected(menuSelected, j)) {
+                        selceted = true;
+                    }
                 }
             }
         }
     }
 
-    private boolean storeSelected(String menuSelected,int j) {
+    private boolean storeSelected(String menuSelected, int j) {
         String name = coaches.getCoachesName(j);
-        if(coaches.isSelected(menuSelected,name)){
+        if (coaches.isSelected(menuSelected, name)) {
             return false;
         }
-        coaches.storeRecommand(menuSelected,name);
+        coaches.storeRecommand(menuSelected, name);
         return true;
     }
 
     private List<String> removeDislike(List<String> menusAll, List<String> dislikes) {
-        for(String menuDilike : dislikes){
+        for (String menuDilike : dislikes) {
             menusAll.remove(menuDilike);
         }
         return menusAll;
     }
 
     public void showResult() {
-        viewController.showEndMessage(categories,coaches);
+        viewController.showEndMessage(categories, coaches);
     }
 }

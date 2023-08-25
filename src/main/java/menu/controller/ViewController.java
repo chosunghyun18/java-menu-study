@@ -24,7 +24,8 @@ public class ViewController {
 
     public void showEndMessage(Category categories, Coach coach) {
         System.out.println("메뉴 추천 결과입니다.");
-        List<String> days = new ArrayList<>(List.of(" 구분 ", "월요일 ", "화요일 ", "수요일 ", "목요일 ", "금요일 "));
+        List<String> days = new ArrayList<>(
+                List.of(" 구분 ", "월요일 ", "화요일 ", "수요일 ", "목요일 ", "금요일 "));
         System.out.println(days.toString().replace(",", "|"));
         System.out.println(categories.getSelectedForResult().toString().replace(",", "|"));
         showSelectedMenuForCoaches(coach);
@@ -32,9 +33,9 @@ public class ViewController {
     }
 
     private void showSelectedMenuForCoaches(Coach coach) {
-        Map<String, List<String>> coachesSelected =coach.getCoacheSelectedForShow();
+        Map<String, List<String>> coachesSelected = coach.getCoacheSelectedForShow();
         coachesSelected.forEach((key, value) -> {
-            String result = "[ " + key + " | " + String.join(" | ", value)+" ]";
+            String result = "[ " + key + " | " + String.join(" | ", value) + " ]";
             System.out.println(result);
         });
     }
@@ -51,7 +52,7 @@ public class ViewController {
 
     public List<String> readCoachesDislike(String name) {
         try {
-            System.out.println(name+"(이)가 못 먹는 메뉴를 입력해 주세요.");
+            System.out.println(name + "(이)가 못 먹는 메뉴를 입력해 주세요.");
             String given = inputView.readDisLike();
             return validateDislike(given);
         } catch (IllegalArgumentException e) {
@@ -66,6 +67,12 @@ public class ViewController {
     }
 
     private List<String> validateCoachesName(String given) {
+        List<String> names = List.of(given.split(","));
+        if(names.size() < 2) throw new IllegalArgumentException();
+        if(names.size() > 5) throw new IllegalArgumentException();
+        for(String name : names){
+            if(name.length() > 4 || name.length() <2) throw new IllegalArgumentException();
+        }
         return List.of(given.split(","));
     }
 
