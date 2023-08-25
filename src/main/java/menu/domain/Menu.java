@@ -30,4 +30,12 @@ public class Menu {
         return Randoms.shuffle(menus).get(0);
     }
 
+    public List<String> getOriginMenuByCategory(String category) {
+        if ("일식 ".equals(category)) return jpm;
+        if ("한식 ".equals(category)) return krm;
+        if ("중식 ".equals(category)) return chm;
+        if ("아시안 ".equals(category)) return asm;
+        if ("양식 ".equals(category)) return wesm;
+        throw new IllegalArgumentException("Invalid category: " + category);
+    }
 }

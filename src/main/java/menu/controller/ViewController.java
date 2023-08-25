@@ -23,7 +23,8 @@ public class ViewController {
     }
 
     public void showEndMessage(Category categories, Coach coach) {
-        List<String> days = new ArrayList<>(List.of("구분", "월요일", "화요일", "수요일", "목요일", "금요일"));
+        System.out.println("메뉴 추천 결과입니다.");
+        List<String> days = new ArrayList<>(List.of(" 구분 ", "월요일 ", "화요일 ", "수요일 ", "목요일 ", "금요일 "));
         System.out.println(days.toString().replace(",", "|"));
         System.out.println(categories.getSelectedForResult().toString().replace(",", "|"));
         showSelectedMenuForCoaches(coach);
@@ -48,13 +49,14 @@ public class ViewController {
         }
     }
 
-    public List<String> readCoachesDislike() {
+    public List<String> readCoachesDislike(String name) {
         try {
+            System.out.println(name+"(이)가 못 먹는 메뉴를 입력해 주세요.");
             String given = inputView.readDisLike();
             return validateDislike(given);
         } catch (IllegalArgumentException e) {
             System.out.println("[ERORR]" + e);
-            return readCoachesDislike();
+            return readCoachesDislike(name);
         }
     }
 

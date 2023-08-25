@@ -9,7 +9,8 @@ public class Category  {
     private List<String> selectedCategories;
 
     public Category(){
-        this.originCategories = new ArrayList<>(List.of("카테고리","일식","한식","중식","아시안","양식"));
+        this.originCategories = new ArrayList<>(List.of(" 카테고리 ","일식 ","한식 ","중식 ","아시안 ","양식 "));
+        selectedCategories = new ArrayList<>();
     }
 
     public String getCategoryInRandom(){
@@ -17,9 +18,14 @@ public class Category  {
     }
 
     public List<String> getSelectedForResult() {
-        return selectedCategories;
+        List<String> result = new ArrayList<>();
+        result.add(originCategories.get(0));
+        result.addAll(selectedCategories);
+        return result;
     }
-
+    public String getCategoriesByDay(int day){
+        return selectedCategories.get(day);
+    }
     public void selectCategory() {
         while (selectedCategories.size()!= 5) {
             String category = getCategoryInRandom() ;
@@ -27,8 +33,8 @@ public class Category  {
                 if(categoryOverOne(category)){
                     continue;
                 }
-                selectedCategories.add(category);
             }
+            selectedCategories.add(category);
         }
     }
 
