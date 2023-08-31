@@ -1,6 +1,7 @@
 package menu.controller;
 
 import menu.model.CoachInfo;
+import menu.model.GenerateCategory;
 import menu.view.InputView;
 import menu.view.OutputView;
 
@@ -11,11 +12,13 @@ public class Controller {
     public InputView inputView;
     public OutputView outputView;
     public CoachInfo coachInfo;
+    public GenerateCategory generateCategory;
 
     private Controller(){
         this.inputView = new InputView();
         this.outputView = new OutputView();
         this.coachInfo = new CoachInfo();
+        this.generateCategory = new GenerateCategory();
 //        outputView.startMessage();
 //        coachNameInput();
         process();
