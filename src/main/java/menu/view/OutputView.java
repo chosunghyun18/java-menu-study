@@ -15,4 +15,8 @@ public class OutputView {
     public void endMessage(){
         System.out.println("추천을 완료했습니다.");
     }
+
+    public void errorMessage(String e){
+        System.out.println("[ERROR]" + e);
+    }
 }

@@ -11,12 +11,15 @@ public class CoachInfo {
 
     public CoachInfo(){
         this.coachNames = new ArrayList<>();
-        //this.coachRestrictions = new ArrayList<>();
-        //코치 인원을 알아야 init 가능...
+        this.coachRestrictions = new ArrayList<>();
     }
 
     public List<String> getCoachNames() {
         return coachNames;
+    }
+
+    public List<List<String>> getCoachRestrictions(){
+        return coachRestrictions;
     }
 
     public void validateCoachNumber(String coachString){
@@ -36,5 +39,22 @@ public class CoachInfo {
         this.coachNames = coaches;
     }
 
+    public void validateCoachRestrictionNumber(String foodString){
+        List<String> foods = Arrays.stream(foodString.split(","))
+                .map(String::trim)
+                .collect(Collectors.toList());
+        if(foods.size()>2)
+            throw new IllegalArgumentException("0~2개의 메뉴를 입력해주세요.");
+        validateCoachRestrictionMenu(foods);
+    }
+
+    private void validateCoachRestrictionMenu(List<String> foods){
+        List<String> notInMenu = foods.stream()
+                .filter(food -> FoodList.menus.stream().noneMatch(category -> category.contains(food)))
+                .collect(Collectors.toList());
+        if (!notInMenu.isEmpty() && !foods.get(0).isEmpty())
+            throw new IllegalArgumentException("입력한 메뉴가 메뉴판에 존재하지 않습니다.");
+        this.coachRestrictions.add(foods);
+    }
 
 }

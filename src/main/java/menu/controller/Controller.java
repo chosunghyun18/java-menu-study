@@ -16,36 +16,44 @@ public class Controller {
         this.inputView = new InputView();
         this.outputView = new OutputView();
         this.coachInfo = new CoachInfo();
-        outputView.startMessage();
-        coachInput();
+//        outputView.startMessage();
+//        coachNameInput();
+        process();
     }
 
     public static Controller start() {
         return new Controller();
     }
 
-    private void coachInput(){
+    private void process(){
+        outputView.startMessage();
+        coachNameInput();
+        coachRestrictionInput(coachInfo.getCoachNames());
+    }
+
+    private void coachNameInput(){
         try {
             coachInfo.validateCoachNumber(inputView.coachNameInputMessage());
-            coachRestriction(coachInfo.getCoachNames());
+            //coachRestrictionInput(coachInfo.getCoachNames());
         }catch (IllegalArgumentException e){
-            System.out.println("[ERROR]" + e);
-            coachInput();
+            outputView.errorMessage(e.getMessage());
+            coachNameInput();
         }
     }
 
-
-    //여기 예외 처리 수정 (하니씩 예외 걸아야 한다.)
-    private void coachRestriction(List<String> coachNames) {
-        try{
-            inputView.foodThatCantEat(coachNames);  //param : coach 이름
-        }catch (IllegalArgumentException e){
-            System.out.println("[ERROR]" + e);
-            coachRestriction(coachNames);
+    private void coachRestrictionInput(List<String> coachNames) {
+        for(String coach:coachNames) {
+            try {
+                coachRestrictionInputIndividual(coach);
+            } catch (IllegalArgumentException e) {
+                outputView.errorMessage(e.getMessage());
+                coachRestrictionInputIndividual(coach);
+            }
         }
     }
 
-    //public void
-
+    private void coachRestrictionInputIndividual(String coach){
+        coachInfo.validateCoachRestrictionNumber(inputView.foodThatCantEat(coach));
+    }
 
 }
