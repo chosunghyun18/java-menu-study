@@ -1,22 +1,37 @@
 package menu.view;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class OutputView {
     public void startMessage(){
         System.out.println("점심 메뉴 추천을 시작합니다.");
     }
 
-    public void menuOutcomeMessage(){
+    public void weekdayMessage(List<String> weekday){
         System.out.println("메뉴 추천 결과입니다.");
-        //메뉴 결과 출력
+        weekday.add(0, "구분");
+        String result = String.join(" | ", weekday);
+        System.out.println("[ "+ result+ " ]");
+    }
 
-        System.out.println();
+    public void categoryOutcomeMessage(List<String> categories){
+        List<String> s = new ArrayList<>(categories);
+        s.add(0, "카테고리");
+        String result = String.join(" | ", s);
+        System.out.println("[ "+ result+ " ]");
+    }
+
+    public void menuOutcomeMessage(List<String> menus){
+        String result = String.join(" | ", menus);
+        System.out.println("[ "+ result+ " ]");
     }
 
     public void endMessage(){
-        System.out.println("추천을 완료했습니다.");
+        System.out.println("\n추천을 완료했습니다.");
     }
 
     public void errorMessage(String e){
-        System.out.println("[ERROR]" + e);
+        System.out.println("[ERROR] " + e);
     }
 }
