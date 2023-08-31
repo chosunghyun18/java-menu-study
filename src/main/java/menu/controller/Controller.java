@@ -15,6 +15,7 @@ public class Controller {
     public OutputView outputView;
     public CoachInfo coachInfo;
     public GenerateCategory generateCategory;
+    public GenerateMenu generateMenu;
 
     private Controller(){
         this.inputView = new InputView();
@@ -63,18 +64,17 @@ public class Controller {
     private void outcome(){
         outputView.weekdayMessage(FoodList.weekday);
         outputView.categoryOutcomeMessage(generateCategory.getCategoriesResult());
-        individualMenuOutcome();
+        generateMenus();
+        outputView.menuOutcomeMessage(generateMenu.getMenusResult());
         outputView.endMessage();
     }
 
-    private void individualMenuOutcome(){
+    private void generateMenus(){
         List<String> categories = generateCategory.getCategoriesResult();
         List<String> coachNames = coachInfo.getCoachNames();
         List<List<String>> coachRestrictions = coachInfo.getCoachRestrictions();
-        for(int i =0; i<coachNames.size(); i++){
-            List<String> individualMenu = GenerateMenu.generateMenu(categories, coachRestrictions.get(i));
-            individualMenu.add(0, coachNames.get(i));
-            outputView.menuOutcomeMessage(individualMenu);
-        }
+
+        this.generateMenu = new GenerateMenu(coachNames, categories, coachRestrictions);
     }
+
 }

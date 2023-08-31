@@ -10,7 +10,6 @@ public class OutputView {
 
     public void weekdayMessage(List<String> weekday){
         System.out.println("메뉴 추천 결과입니다.");
-        weekday.add(0, "구분");
         String result = String.join(" | ", weekday);
         System.out.println("[ "+ result+ " ]");
     }
@@ -22,9 +21,8 @@ public class OutputView {
         System.out.println("[ "+ result+ " ]");
     }
 
-    public void menuOutcomeMessage(List<String> menus){
-        String result = String.join(" | ", menus);
-        System.out.println("[ "+ result+ " ]");
+    public void menuOutcomeMessage(List<List<String>> menus){
+        menus.stream().map(individualMenu -> String.join(" | ", individualMenu)).map(result -> "[ " + result + " ]").forEach(System.out::println);
     }
 
     public void endMessage(){

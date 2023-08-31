@@ -23,13 +23,13 @@ public class GenerateCategory {
             String category;
             do{
                 category = (FoodList.categories).get(Randoms.pickNumberInRange(1, 5));
-            }while(countOccurrence(category, categories) > 2);
+            }while(countOccurrence(category, categories));
             categories.add(category);
         }
         return categories;
     }
 
-    private long countOccurrence(String category, List<String> categories){
-        return categories.stream().filter(target -> target.equals(category)).count();
+    private boolean countOccurrence(String category, List<String> categories){
+        return (categories.stream().filter(target -> target.equals(category)).count()>2);
     }
 }
