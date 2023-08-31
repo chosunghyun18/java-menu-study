@@ -16,7 +16,6 @@ public class GenerateCategory {
         return this.categoriesResult;
     }
 
-
     private List<String> generateCategoriesResult(){
         List<String> categories = new ArrayList<>();
         for(int i=0; i<5; i++){
