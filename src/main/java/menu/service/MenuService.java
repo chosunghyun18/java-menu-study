@@ -18,43 +18,44 @@ import menu.domain.Coach;
 import menu.presentation.OutputView;
 
 public class MenuService {
-    public static Menu getMenu(String name) throws IllegalArgumentException {
-      List<Menu> allMenus = new ArrayList<>();
-      allMenus.addAll(Arrays.asList(KoreanMenu.values()));
-      allMenus.addAll(Arrays.asList(JapaneseMenu.values()));
-      allMenus.addAll(Arrays.asList(ChineseMenu.values()));
-      allMenus.addAll(Arrays.asList(AsianMenu.values()));
-      allMenus.addAll(Arrays.asList(WesternMenu.values()));
-      for (Menu menu : allMenus) {
-        if (Objects.equals(menu.getName(), name)) {
-          return menu;
-        }
+
+  public static Menu getMenu(String name) throws IllegalArgumentException {
+    List<Menu> allMenus = new ArrayList<>();
+    allMenus.addAll(Arrays.asList(KoreanMenu.values()));
+    allMenus.addAll(Arrays.asList(JapaneseMenu.values()));
+    allMenus.addAll(Arrays.asList(ChineseMenu.values()));
+    allMenus.addAll(Arrays.asList(AsianMenu.values()));
+    allMenus.addAll(Arrays.asList(WesternMenu.values()));
+    for (Menu menu : allMenus) {
+      if (Objects.equals(menu.getName(), name)) {
+        return menu;
       }
-      throw new IllegalArgumentException();
     }
+    throw new IllegalArgumentException();
+  }
 
   public static void recommendMenu(List<Coach> coaches) {
+    Category category = null;
     for (Day day : Day.values()) {
-      boolean validMenu = false;
-      Category category = null;
-      while(!validMenu) {
+      boolean valid = false;
+      while (!valid) {
         try {
           category = pickCategory();
+          day.setCategory(category);
           for (Coach coach : coaches) {
             Menu menu = category.pickRandomMenu();
             coach.addRecommendMenu(menu);
           }
-          validMenu = true;
+          valid = true;
         } catch (IllegalStateException | IllegalAccessException e) {
           //
         }
       }
-      day.setCategory(category);
     }
     OutputView.result(Arrays.asList(Day.values()), coaches);
   }
 
-    public static Category pickCategory() {
-      return Category.pickRandomCategory();
-    }
+  public static Category pickCategory() {
+    return Category.pickRandomCategory();
+  }
 }

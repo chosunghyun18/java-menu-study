@@ -25,7 +25,6 @@ public enum Category {
     this.menuClass = menuClass;
   }
 
-
   public static Category pickRandomCategory() {
     return values()[Randoms.pickNumberInRange(1, 5) - 1];
   }

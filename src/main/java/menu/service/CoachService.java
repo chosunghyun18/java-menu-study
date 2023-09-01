@@ -14,10 +14,11 @@ import menu.domain.Coach;
 import menu.presentation.OutputView;
 
 public class CoachService {
+
   public static Coach makeCoach(String name) throws IllegalArgumentException {
-    Coach.validateName(name);
     return Coach.from(name);
   }
+
   public static Coach setImpossibleMenu(Coach coach, Menu menu) {
     coach.addImpossibleMenu(menu);
     return coach;

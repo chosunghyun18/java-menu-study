@@ -7,6 +7,8 @@ import java.util.stream.Collectors;
 import menu.constants.enums.Category;
 
 public interface Menu {
+
   Category getCategory();
+
   String getName();
 }
