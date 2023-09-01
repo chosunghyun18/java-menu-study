@@ -11,6 +11,7 @@ public class Category  {
     public Category(){
         this.originCategories = new ArrayList<>(List.of(" 카테고리 ","일식 ","한식 ","중식 ","아시안 ","양식 "));
         selectedCategories = new ArrayList<>();
+        selectCategory();
     }
 
     public String getCategoryInRandom(){

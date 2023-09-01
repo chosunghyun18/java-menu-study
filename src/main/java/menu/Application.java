@@ -1,12 +1,12 @@
 package menu;
 
+import menu.front.app.controller.ViewController;
+
 public class Application {
     public static void main(String[] args) {
-
-//        RecommendController recommendController = new RecommendController();
-//        recommendController.startRecommend();
-//        recommendController.prosses();
-//        recommendController.showResult();
-
+        ViewController viewController = new ViewController();
+        viewController.showIntroMessage();
+        viewController.readCoachesInfo();
+        viewController.showResult();
     }
 }

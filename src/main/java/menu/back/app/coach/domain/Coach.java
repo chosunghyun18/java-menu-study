@@ -1,12 +1,10 @@
 package menu.back.app.coach.domain;
 
 import java.util.ArrayList;
-import java.util.Arrays;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
-import java.util.TreeSet;
 
 public class Coach {
     // Get coaches name by - > Set , make selected  and dislike  as  key value : hash map
@@ -27,7 +25,7 @@ public class Coach {
     public String getCoachesName(int i){
         return coachesNames.get(i);
     }
-    public List<String> getCoachesDislikeByOrder(int i){
+    public List<String> getCoachesDislikeByOrder(int i) {
         return coachesDiLikes.get(i);
     }
     private void validateCoachesName(List<String> name) {
@@ -52,5 +50,9 @@ public class Coach {
         List<String> menus =coachesSelected.get(name);
         menus.add(menuSelected);
         coachesSelected.put(name,menus);
+    }
+
+    public List<String> getCoachesNames() {
+        return coachesNames;
     }
 }
