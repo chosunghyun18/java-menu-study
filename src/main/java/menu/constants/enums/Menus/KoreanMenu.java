@@ -10,16 +10,11 @@ public enum KoreanMenu implements Menu {
 
   @Override
   public Category getCategory() {
-    return Category.Korean;
+    return Category.한식;
   }
 
   @Override
   public String getName() {
     return this.name().replace('_', ' ');
-  }
-
-  @Override
-  public Menu pickRandomMenu() {
-    return Randoms.shuffle(List.of(KoreanMenu.values())).get(0);
   }
 }

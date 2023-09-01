@@ -1,7 +1,7 @@
 package menu.presentation;
 
-import static menu.service.CoachService.recommendMenu;
 import static menu.service.CoachService.setImpossibleMenu;
+import static menu.service.MenuService.recommendMenu;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.util.Arrays;
@@ -42,7 +42,7 @@ public class InputView {
               Arrays.stream(Console.readLine().trim().split(","))
                   .map(MenuService::getMenu)
                   .forEach(menu -> setImpossibleMenu(c, menu));
-              validInput = true; // Input was successfully processed without errors
+              validInput = true;
             } catch (IllegalArgumentException e) {
               System.out.println(ErrorString.INVALID_MENU);
             }

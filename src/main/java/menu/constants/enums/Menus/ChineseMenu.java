@@ -9,16 +9,11 @@ public enum ChineseMenu implements Menu {
 
   @Override
   public Category getCategory() {
-    return Category.Chinese;
+    return Category.중식;
   }
 
   @Override
   public String getName() {
     return this.name().replace('_', ' ');
-  }
-
-  @Override
-  public Menu pickRandomMenu() {
-    return Randoms.shuffle(List.of(ChineseMenu.values())).get(0);
   }
 }

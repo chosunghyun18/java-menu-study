@@ -9,16 +9,11 @@ public enum AsianMenu implements Menu {
 
   @Override
   public Category getCategory() {
-    return Category.Asian;
+    return Category.아시안;
   }
 
   @Override
   public String getName() {
     return this.name().replace('_', ' ');
-  }
-
-  @Override
-  public Menu pickRandomMenu() {
-    return Randoms.shuffle(List.of(AsianMenu.values())).get(0);
   }
 }

@@ -1,13 +1,17 @@
 package menu.domain;
 
+import static java.lang.System.exit;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import menu.constants.enums.Menus.Menu;
 
 public class Coach {
 
   private String name;
-  private List<Menu> impossibleMenus;
-  private List<Menu> recommendedMenus;
+  private List<Menu> impossibleMenus = new ArrayList<>();;
+  private List<Menu> recommendedMenus = new ArrayList<>();;
 
   private Coach(String name) {
     this.name = name;
@@ -38,9 +42,10 @@ public class Coach {
     this.impossibleMenus.add(menu);
   }
 
-  public void addRecommendedMenu(Menu menu) {
-    this.recommendedMenus.add(menu);
+  public void addRecommendMenu(Menu menu) throws IllegalStateException {
+    this.recommendedMenus.add(validateMenu(menu));
   }
-
-
+  public List<Menu> getRecommendMenus() {
+    return this.recommendedMenus;
+  }
 }

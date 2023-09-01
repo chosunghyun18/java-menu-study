@@ -9,16 +9,11 @@ public enum WesternMenu implements Menu {
 
   @Override
   public Category getCategory() {
-    return Category.Western;
+    return Category.양식;
   }
 
   @Override
   public String getName() {
     return this.name().replace('_', ' ');
-  }
-
-  @Override
-  public Menu pickRandomMenu() {
-    return Randoms.shuffle(List.of(WesternMenu.values())).get(0);
   }
 }

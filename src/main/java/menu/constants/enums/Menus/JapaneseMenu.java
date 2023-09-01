@@ -9,16 +9,11 @@ public enum JapaneseMenu implements Menu {
 
   @Override
   public Category getCategory() {
-    return Category.Japanese;
+    return Category.일식;
   }
 
   @Override
   public String getName() {
     return this.name().replace('_', ' ');
-  }
-
-  @Override
-  public Menu pickRandomMenu() {
-    return Randoms.shuffle(List.of(JapaneseMenu.values())).get(0);
   }
 }
