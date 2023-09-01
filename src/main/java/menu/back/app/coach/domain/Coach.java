@@ -1,4 +1,4 @@
-package menu.domain;
+package menu.back.app.coach.domain;
 
 import java.util.ArrayList;
 import java.util.Arrays;

@@ -1,10 +1,11 @@
-package menu.controller;
+package menu.back.app.menu.adapter.in.presentation;
 
 import java.util.ArrayList;
 import java.util.List;
-import menu.domain.Category;
-import menu.domain.Coach;
-import menu.domain.Menu;
+import menu.back.app.menu.domain.Category;
+import menu.back.app.coach.domain.Coach;
+import menu.back.app.menu.domain.Menu;
+import menu.front.app.controller.ViewController;
 
 public class RecommendController {
 
@@ -26,7 +27,6 @@ public class RecommendController {
     }
 
     public void prosses() {
-        System.out.println("코치의 이름을 입력해 주세요. (, 로 구분)\n");
         readName();
         readDislike();
         recommendCategory();
