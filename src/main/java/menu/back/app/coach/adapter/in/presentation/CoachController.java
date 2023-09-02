@@ -1,4 +1,4 @@
-package menu.back.app.coach.adapter.presentation;
+package menu.back.app.coach.adapter.in.presentation;
 
 public class CoachController {
     private final AddCoachController addCoachController;

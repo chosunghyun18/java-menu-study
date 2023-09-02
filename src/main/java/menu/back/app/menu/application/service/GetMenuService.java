@@ -1,7 +1,7 @@
 package menu.back.app.menu.application.service;
 
 import java.util.List;
-import menu.back.app.coach.adapter.persistence.CoachPersistenceAdapter;
+import menu.back.app.coach.adapter.out.persistence.CoachPersistenceAdapter;
 import menu.back.app.coach.application.port.out.LoadCoachPort;
 
 import menu.back.app.coach.domain.Coach;

@@ -3,10 +3,10 @@ package menu.front.app.controller;
 import java.util.ArrayList;
 import java.util.List;
 
-import menu.back.app.coach.adapter.presentation.AddCoachDisLikeRequest;
-import menu.back.app.coach.adapter.presentation.AddCoachNameRequest;
-import menu.back.app.coach.adapter.presentation.CoachController;
-import menu.back.app.coach.adapter.presentation.CoachesNameInfoResponse;
+import menu.back.app.coach.adapter.in.presentation.AddCoachDisLikeRequest;
+import menu.back.app.coach.adapter.in.presentation.AddCoachNameRequest;
+import menu.back.app.coach.adapter.in.presentation.CoachController;
+import menu.back.app.coach.adapter.in.presentation.CoachesNameInfoResponse;
 import menu.back.app.menu.adapter.in.presentation.RecommendController;
 import menu.back.app.menu.adapter.in.presentation.RecommendInfoResponse;
 

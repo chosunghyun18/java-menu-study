@@ -1,4 +1,4 @@
-package menu.back.app.coach.adapter.persistence;
+package menu.back.app.coach.adapter.out.persistence;
 
 import menu.back.app.coach.domain.Coach;
 

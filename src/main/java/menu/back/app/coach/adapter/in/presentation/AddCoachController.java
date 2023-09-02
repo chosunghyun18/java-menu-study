@@ -1,4 +1,4 @@
-package menu.back.app.coach.adapter.presentation;
+package menu.back.app.coach.adapter.in.presentation;
 
 
 import menu.back.app.coach.application.port.in.AddCoachDisLikeUseCase;

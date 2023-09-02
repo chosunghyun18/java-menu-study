@@ -1,10 +1,10 @@
 package menu.back.app.coach.converter;
 
 import java.util.List;
-import menu.back.app.coach.adapter.persistence.CoachEntity;
-import menu.back.app.coach.adapter.presentation.AddCoachDisLikeRequest;
-import menu.back.app.coach.adapter.presentation.AddCoachNameRequest;
-import menu.back.app.coach.adapter.presentation.CoachesNameInfoResponse;
+import menu.back.app.coach.adapter.out.persistence.CoachEntity;
+import menu.back.app.coach.adapter.in.presentation.AddCoachDisLikeRequest;
+import menu.back.app.coach.adapter.in.presentation.AddCoachNameRequest;
+import menu.back.app.coach.adapter.in.presentation.CoachesNameInfoResponse;
 import menu.back.app.coach.domain.Coach;
 
 public class CoachConverter {

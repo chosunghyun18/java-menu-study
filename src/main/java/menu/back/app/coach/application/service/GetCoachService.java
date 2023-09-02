@@ -1,7 +1,7 @@
 package menu.back.app.coach.application.service;
 
-import menu.back.app.coach.adapter.persistence.CoachPersistenceAdapter;
-import menu.back.app.coach.adapter.presentation.CoachesNameInfoResponse;
+import menu.back.app.coach.adapter.out.persistence.CoachPersistenceAdapter;
+import menu.back.app.coach.adapter.in.presentation.CoachesNameInfoResponse;
 import menu.back.app.coach.application.port.in.GetCoachNameUsecase;
 import menu.back.app.coach.application.port.out.LoadCoachPort;
 import menu.back.app.coach.converter.CoachConverter;
