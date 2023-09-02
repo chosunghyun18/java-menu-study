@@ -48,8 +48,8 @@ public class ViewController {
         coachController.saveCoachesDislike(request);
     }
 
-//    public void showResult() {
-//        RecommendInfoResponse recommendInfo = recommendController.getRecommendMenu();
-//        outputViewController.showEndMessage(recommendInfo.getCategory(),recommendInfo.getCoach());
-//    }
+    public void showResult() {
+        RecommendInfoResponse recommendInfo = recommendController.getRecommendMenu();
+        outputViewController.showEndMessage(recommendInfo.getCategory(),recommendInfo.getCoach());
+    }
 }

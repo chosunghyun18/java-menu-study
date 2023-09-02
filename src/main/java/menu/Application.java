@@ -7,6 +7,6 @@ public class Application {
         ViewController viewController = new ViewController();
         viewController.showIntroMessage();
         viewController.readCoachesInfo();
-        //viewController.showResult();
+        viewController.showResult();
     }
 }

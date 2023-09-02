@@ -25,7 +25,7 @@ public class Coach {
     public String getCoachesName(int i){
         return coachesNames.get(i);
     }
-    public List<String> getCoachesDislikeByOrder(int i) {
+    public List<String> getCoachesDislikesBySequence(int i) {
         return coachesDiLikes.get(i);
     }
     private void validateCoachesName(List<String> name) {
@@ -54,5 +54,8 @@ public class Coach {
 
     public List<String> getCoachesNames() {
         return coachesNames;
+    }
+    public int numberOfCoaches(){
+        return coachesNames.size();
     }
 }

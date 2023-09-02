@@ -13,7 +13,6 @@ public class Category  {
         selectedCategories = new ArrayList<>();
         selectCategory();
     }
-
     public String getCategoryInRandom(){
         return originCategories.get(Randoms.pickNumberInRange(1, 5));
     }
@@ -27,7 +26,8 @@ public class Category  {
     public String getCategoriesByDay(int day){
         return selectedCategories.get(day);
     }
-    public void selectCategory() {
+
+    void selectCategory() {
         while (selectedCategories.size()!= 5) {
             String category = getCategoryInRandom() ;
             if(selectedCategories.contains(category)){
@@ -39,7 +39,7 @@ public class Category  {
         }
     }
 
-    private boolean categoryOverOne(String category) {
+    boolean categoryOverOne(String category) {
         long count = selectedCategories.stream().filter(cat -> cat.equals(category)).count();
         return count > 1;
     }

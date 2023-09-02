@@ -1,5 +1,7 @@
 package menu.back.app.menu.application.port.out;
 
-public interface LoadMenuPort {
+import menu.back.app.menu.domain.Menu;
 
+public interface LoadMenuPort {
+    Menu getMenu() ;
 }
