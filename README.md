@@ -10,7 +10,7 @@ Back
         - port : dip 를 위한 인터페이스 모음 , usecase ,port
         - service : port 의 구현체
       - converter
-        - enrtiry <-> domain
+        - entity <-> domain
         - domain <-> dto
       - domain
         - 비즈니스 로직 & data
